@@ -83,6 +83,30 @@ test('create RTCPeerConnection', function(t) {
   t.ok(typeof(new RTCPeerConnection()) === 'object',
       'RTCPeerConnection constructor');
 });
+test('attachMediaStream', function(t) {
+  // onloadedmetadata had issues in Firefox < 38.
+  t.plan((m.webrtcDetectedBrowser === 'firefox' &&
+          m.webrtcDetectedVersion < 38) ? 2 : 3);
+  var video = document.createElement('video');
+  // if attachMediaStream works, we should get a video
+  // at some point. This will trigger onloadedmetadata.
+
+  var constraints = {video: true, fake: true};
+  navigator.mediaDevices.getUserMedia(constraints)
+  .then(function(stream) {
+    t.pass('got stream.');
+      video.onloadedmetadata = function() {
+        t.pass('got stream with w=' + video.videoWidth +
+               ',h=' + video.videoHeight);
+        stream.stop();
+      };
+    m.attachMediaStream(video, stream);
+    t.pass('attachMediaStream returned');
+  })
+  .catch(function(err) {
+    t.fail(err.toString());
+  });
+});
 
 test('attachMediaStream', function(t) {
   // onloadedmetadata had issues in Firefox < 38.
@@ -91,15 +115,142 @@ test('attachMediaStream', function(t) {
   var video = document.createElement('video');
   // if attachMediaStream works, we should get a video
   // at some point. This will trigger onloadedmetadata.
-  video.onloadedmetadata = function() {
-    t.pass('got stream with w=' + video.videoWidth +
-           ',h=' + video.videoHeight);
-  };
 
   var constraints = {video: true, fake: true};
   navigator.mediaDevices.getUserMedia(constraints)
   .then(function(stream) {
     t.pass('got stream.');
+      video.onloadedmetadata = function() {
+        t.pass('got stream with w=' + video.videoWidth +
+               ',h=' + video.videoHeight);
+        stream.stop();
+      };
+    m.attachMediaStream(video, stream);
+    t.pass('attachMediaStream returned');
+  })
+  .catch(function(err) {
+    t.fail(err.toString());
+  });
+});
+
+test('attachMediaStream', function(t) {
+  // onloadedmetadata had issues in Firefox < 38.
+  t.plan((m.webrtcDetectedBrowser === 'firefox' &&
+          m.webrtcDetectedVersion < 38) ? 2 : 3);
+  var video = document.createElement('video');
+  // if attachMediaStream works, we should get a video
+  // at some point. This will trigger onloadedmetadata.
+
+  var constraints = {video: true, fake: true};
+  navigator.mediaDevices.getUserMedia(constraints)
+  .then(function(stream) {
+    t.pass('got stream.');
+      video.onloadedmetadata = function() {
+        t.pass('got stream with w=' + video.videoWidth +
+               ',h=' + video.videoHeight);
+        stream.stop();
+      };
+    m.attachMediaStream(video, stream);
+    t.pass('attachMediaStream returned');
+  })
+  .catch(function(err) {
+    t.fail(err.toString());
+  });
+});
+
+test('attachMediaStream', function(t) {
+  // onloadedmetadata had issues in Firefox < 38.
+  t.plan((m.webrtcDetectedBrowser === 'firefox' &&
+          m.webrtcDetectedVersion < 38) ? 2 : 3);
+  var video = document.createElement('video');
+  // if attachMediaStream works, we should get a video
+  // at some point. This will trigger onloadedmetadata.
+
+  var constraints = {video: true, fake: true};
+  navigator.mediaDevices.getUserMedia(constraints)
+  .then(function(stream) {
+    t.pass('got stream.');
+      video.onloadedmetadata = function() {
+        t.pass('got stream with w=' + video.videoWidth +
+               ',h=' + video.videoHeight);
+        stream.stop();
+      };
+    m.attachMediaStream(video, stream);
+    t.pass('attachMediaStream returned');
+  })
+  .catch(function(err) {
+    t.fail(err.toString());
+  });
+});
+
+test('attachMediaStream', function(t) {
+  // onloadedmetadata had issues in Firefox < 38.
+  t.plan((m.webrtcDetectedBrowser === 'firefox' &&
+          m.webrtcDetectedVersion < 38) ? 2 : 3);
+  var video = document.createElement('video');
+  // if attachMediaStream works, we should get a video
+  // at some point. This will trigger onloadedmetadata.
+
+  var constraints = {video: true, fake: true};
+  navigator.mediaDevices.getUserMedia(constraints)
+  .then(function(stream) {
+    t.pass('got stream.');
+      video.onloadedmetadata = function() {
+        t.pass('got stream with w=' + video.videoWidth +
+               ',h=' + video.videoHeight);
+        stream.stop();
+      };
+    m.attachMediaStream(video, stream);
+    t.pass('attachMediaStream returned');
+  })
+  .catch(function(err) {
+    t.fail(err.toString());
+  });
+});
+
+test('attachMediaStream', function(t) {
+  // onloadedmetadata had issues in Firefox < 38.
+  t.plan((m.webrtcDetectedBrowser === 'firefox' &&
+          m.webrtcDetectedVersion < 38) ? 2 : 3);
+  var video = document.createElement('video');
+  // if attachMediaStream works, we should get a video
+  // at some point. This will trigger onloadedmetadata.
+
+  var constraints = {video: true, fake: true};
+  navigator.mediaDevices.getUserMedia(constraints)
+  .then(function(stream) {
+    t.pass('got stream.');
+      video.onloadedmetadata = function() {
+        t.pass('got stream with w=' + video.videoWidth +
+               ',h=' + video.videoHeight);
+        stream.stop();
+      };
+    m.attachMediaStream(video, stream);
+    t.pass('attachMediaStream returned');
+  })
+  .catch(function(err) {
+    t.fail(err.toString());
+  });
+});
+
+
+test('attachMediaStream', function(t) {
+  // onloadedmetadata had issues in Firefox < 38.
+  t.plan((m.webrtcDetectedBrowser === 'firefox' &&
+          m.webrtcDetectedVersion < 38) ? 2 : 3);
+  var video = document.createElement('video');
+  // if attachMediaStream works, we should get a video
+  // at some point. This will trigger onloadedmetadata.
+
+  var constraints = {video: true, fake: true};
+  navigator.mediaDevices.getUserMedia(constraints)
+  .then(function(stream) {
+    t.pass('got stream.');
+      video.onloadedmetadata = function() {
+        t.pass('got stream with w=' + video.videoWidth +
+               ',h=' + video.videoHeight);
+        stream.stop();
+      };
     m.attachMediaStream(video, stream);
     t.pass('attachMediaStream returned');
   })
